@@ -35,6 +35,11 @@ app.get("/list",(req,res) => {
         })
     })
 })
+app.post("/info",(req,res) => {
+    Resep.findById(req.body.id).sort({date:'desc'}).then(resep => {
+        res.status(200).json(resep)
+    })
+})
 app.post('/insert',(req,res) => {
     console.log(req.body);
 
